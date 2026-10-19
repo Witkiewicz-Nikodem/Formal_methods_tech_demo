@@ -1,0 +1,19 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc yices
+
+[script]
+read -formal mix_columns.sv
+read -formal mix_columns_inv.sv
+read -formal mix_columns_formal.sv
+read -formal mix_columns_ref.sv
+prep -top mix_column_formal
+
+[files]
+mix_columns.sv
+mix_columns_inv.sv
+mix_columns_formal.sv
+mix_columns_ref.sv

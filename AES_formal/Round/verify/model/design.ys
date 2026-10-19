@@ -1,0 +1,17 @@
+# running in verify/src/
+read_verilog -formal -sv sbox_table.sv
+read_verilog -formal -sv sbox_table_inv.sv
+read_verilog -formal -sv shift_rows_tab.sv
+read_verilog -formal -sv shift_rows_tab_inv.sv
+read_verilog -formal -sv mix_column.sv
+read_verilog -formal -sv mix_column_inv.sv
+read_verilog -formal -sv add_key.sv
+read_verilog -formal -sv AES_round.sv
+read_verilog -formal -sv AES_round_inv.sv
+read_verilog -formal -sv AES_formal.sv
+prep -top AES_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

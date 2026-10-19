@@ -1,0 +1,648 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: sbox_table.sv
+Parsing formal SystemVerilog input from `sbox_table.sv' to AST representation.
+Generating RTLIL representation for module `\sbox_tab'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: sbox_table_inv.sv
+Parsing formal SystemVerilog input from `sbox_table_inv.sv' to AST representation.
+Generating RTLIL representation for module `\invsbox_tab'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: shift_rows_tab.sv
+Parsing formal SystemVerilog input from `shift_rows_tab.sv' to AST representation.
+Generating RTLIL representation for module `\shift_rows_tab'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: shift_rows_tab_inv.sv
+Parsing formal SystemVerilog input from `shift_rows_tab_inv.sv' to AST representation.
+Generating RTLIL representation for module `\shift_rows_tab_inv'.
+Successfully finished Verilog frontend.
+
+5. Executing Verilog-2005 frontend: mix_column.sv
+Parsing formal SystemVerilog input from `mix_column.sv' to AST representation.
+Generating RTLIL representation for module `\mixcol'.
+Successfully finished Verilog frontend.
+
+6. Executing Verilog-2005 frontend: mix_column_inv.sv
+Parsing formal SystemVerilog input from `mix_column_inv.sv' to AST representation.
+Generating RTLIL representation for module `\invmixcol'.
+Successfully finished Verilog frontend.
+
+7. Executing Verilog-2005 frontend: add_key.sv
+Parsing formal SystemVerilog input from `add_key.sv' to AST representation.
+Generating RTLIL representation for module `\add_key'.
+Successfully finished Verilog frontend.
+
+8. Executing Verilog-2005 frontend: AES_round.sv
+Parsing formal SystemVerilog input from `AES_round.sv' to AST representation.
+Generating RTLIL representation for module `\round'.
+Successfully finished Verilog frontend.
+
+9. Executing Verilog-2005 frontend: AES_round_inv.sv
+Parsing formal SystemVerilog input from `AES_round_inv.sv' to AST representation.
+Generating RTLIL representation for module `\round_inv'.
+Successfully finished Verilog frontend.
+
+10. Executing Verilog-2005 frontend: AES_formal.sv
+Parsing formal SystemVerilog input from `AES_formal.sv' to AST representation.
+Generating RTLIL representation for module `\AES_formal'.
+AES_formal.sv:18: Warning: Identifier `\key' is implicitly declared.
+Successfully finished Verilog frontend.
+
+11. Executing PREP pass.
+
+11.1. Executing HIERARCHY pass (managing design hierarchy).
+
+11.1.1. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invsbox_tab
+Used module:         \invmixcol
+Used module:         \shift_rows_tab_inv
+
+11.1.2. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invsbox_tab
+Used module:         \invmixcol
+Used module:         \shift_rows_tab_inv
+Removed 0 unused modules.
+Module AES_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+Warning: Resizing cell port AES_formal.r_inv_1.round_key from 1 bits to 128 bits.
+Warning: Resizing cell port AES_formal.r1.round_key from 1 bits to 128 bits.
+
+11.2. Executing PROC pass (convert processes to netlists).
+
+11.2.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+11.2.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$sbox_table_inv.sv:5$2 in module invsbox_tab.
+Marked 1 switch rules as full_case in process $proc$sbox_table_inv.sv:5$2 in module invsbox_tab.
+Removed 1 dead cases from process $proc$sbox_table.sv:5$1 in module sbox_tab.
+Marked 1 switch rules as full_case in process $proc$sbox_table.sv:5$1 in module sbox_tab.
+Removed a total of 2 dead cases.
+
+11.2.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 4 assignments to connections.
+
+11.2.4. Executing PROC_INIT pass (extract init attributes).
+
+11.2.5. Executing PROC_ARST pass (detect async resets in processes).
+
+11.2.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 2 switches.
+
+11.2.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\AES_formal.$proc$AES_formal.sv:30$82'.
+Creating decoders for process `\invsbox_tab.$proc$sbox_table_inv.sv:5$2'.
+     1/1: $1\out[7:0]
+Creating decoders for process `\sbox_tab.$proc$sbox_table.sv:5$1'.
+     1/1: $1\out[7:0]
+
+11.2.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\invsbox_tab.\out' from process `\invsbox_tab.$proc$sbox_table_inv.sv:5$2'.
+No latch inferred for signal `\sbox_tab.\out' from process `\sbox_tab.$proc$sbox_table.sv:5$1'.
+
+11.2.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+11.2.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+11.2.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `AES_formal.$proc$AES_formal.sv:30$82'.
+Found and cleaned up 1 empty switch in `\invsbox_tab.$proc$sbox_table_inv.sv:5$2'.
+Removing empty process `invsbox_tab.$proc$sbox_table_inv.sv:5$2'.
+Found and cleaned up 1 empty switch in `\sbox_tab.$proc$sbox_table.sv:5$1'.
+Removing empty process `sbox_tab.$proc$sbox_table.sv:5$1'.
+Cleaned up 2 empty switches.
+
+11.2.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AES_formal.
+Optimizing module round_inv.
+Optimizing module round.
+Optimizing module add_key.
+Optimizing module invmixcol.
+Optimizing module mixcol.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_tab.
+
+11.3. Executing FUTURE pass.
+
+11.4. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AES_formal.
+Optimizing module round_inv.
+Optimizing module round.
+Optimizing module add_key.
+Optimizing module invmixcol.
+Optimizing module mixcol.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_tab.
+
+11.5. Executing CHECK pass (checking for obvious problems).
+Checking module AES_formal...
+Warning: Wire AES_formal.\key is used but has no driver.
+Checking module round_inv...
+Checking module round...
+Checking module add_key...
+Checking module invmixcol...
+Checking module mixcol...
+Checking module shift_rows_tab_inv...
+Checking module shift_rows_tab...
+Checking module invsbox_tab...
+Checking module sbox_tab...
+Found and reported 1 problems.
+
+11.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AES_formal..
+Finding unused cells or wires in module \round_inv..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \invmixcol..
+Finding unused cells or wires in module \mixcol..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_tab..
+Removed 0 unused cells and 59 unused wires.
+<suppressed ~6 debug messages>
+
+11.7. Executing OPT pass (performing simple optimizations).
+
+11.7.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AES_formal.
+Optimizing module round_inv.
+Optimizing module round.
+Optimizing module add_key.
+Optimizing module invmixcol.
+Optimizing module mixcol.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_tab.
+
+11.7.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AES_formal'.
+Computing hashes of 8 cells of `\AES_formal'.
+Finding duplicate cells in `\AES_formal'.
+Finding identical cells in module `\round_inv'.
+Computing hashes of 22 cells of `\round_inv'.
+Finding duplicate cells in `\round_inv'.
+Finding identical cells in module `\round'.
+Computing hashes of 22 cells of `\round'.
+Finding duplicate cells in `\round'.
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\invmixcol'.
+Computing hashes of 46 cells of `\invmixcol'.
+Finding duplicate cells in `\invmixcol'.
+Finding identical cells in module `\mixcol'.
+Computing hashes of 28 cells of `\mixcol'.
+Finding duplicate cells in `\mixcol'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 2 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 2 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Removed a total of 0 cells.
+
+11.7.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \AES_formal..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \round_inv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \round..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \add_key..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \invmixcol..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \mixcol..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shift_rows_tab_inv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shift_rows_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \invsbox_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sbox_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+11.7.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \AES_formal.
+  Optimizing cells in module \round_inv.
+  Optimizing cells in module \round.
+  Optimizing cells in module \add_key.
+  Optimizing cells in module \invmixcol.
+  Optimizing cells in module \mixcol.
+  Optimizing cells in module \shift_rows_tab_inv.
+  Optimizing cells in module \shift_rows_tab.
+  Optimizing cells in module \invsbox_tab.
+  Optimizing cells in module \sbox_tab.
+Performed a total of 0 changes.
+
+11.7.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AES_formal'.
+Computing hashes of 8 cells of `\AES_formal'.
+Finding duplicate cells in `\AES_formal'.
+Finding identical cells in module `\round_inv'.
+Computing hashes of 22 cells of `\round_inv'.
+Finding duplicate cells in `\round_inv'.
+Finding identical cells in module `\round'.
+Computing hashes of 22 cells of `\round'.
+Finding duplicate cells in `\round'.
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\invmixcol'.
+Computing hashes of 46 cells of `\invmixcol'.
+Finding duplicate cells in `\invmixcol'.
+Finding identical cells in module `\mixcol'.
+Computing hashes of 28 cells of `\mixcol'.
+Finding duplicate cells in `\mixcol'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 2 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 2 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Removed a total of 0 cells.
+
+11.7.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AES_formal..
+Finding unused cells or wires in module \round_inv..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \invmixcol..
+Finding unused cells or wires in module \mixcol..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_tab..
+
+11.7.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AES_formal.
+Optimizing module round_inv.
+Optimizing module round.
+Optimizing module add_key.
+Optimizing module invmixcol.
+Optimizing module mixcol.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_tab.
+
+11.7.8. Finished fast OPT passes. (There is nothing left to do.)
+
+11.8. Executing WREDUCE pass (reducing word size of cells).
+Removed top 24 address bits (of 32) from memory init port invsbox_tab.$auto$mem.cc:351:emit$90 ($auto$proc_rom.cc:155:do_switch$88).
+Removed top 24 address bits (of 32) from memory init port sbox_tab.$auto$mem.cc:351:emit$94 ($auto$proc_rom.cc:155:do_switch$92).
+
+11.9. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AES_formal..
+Finding unused cells or wires in module \round_inv..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \invmixcol..
+Finding unused cells or wires in module \mixcol..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_tab..
+
+11.10. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+11.11. Executing OPT pass (performing simple optimizations).
+
+11.11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module AES_formal.
+Optimizing module round_inv.
+Optimizing module round.
+Optimizing module add_key.
+Optimizing module invmixcol.
+Optimizing module mixcol.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_tab.
+
+11.11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\AES_formal'.
+Computing hashes of 8 cells of `\AES_formal'.
+Finding duplicate cells in `\AES_formal'.
+Finding identical cells in module `\round_inv'.
+Computing hashes of 22 cells of `\round_inv'.
+Finding duplicate cells in `\round_inv'.
+Finding identical cells in module `\round'.
+Computing hashes of 22 cells of `\round'.
+Finding duplicate cells in `\round'.
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\invmixcol'.
+Computing hashes of 46 cells of `\invmixcol'.
+Finding duplicate cells in `\invmixcol'.
+Finding identical cells in module `\mixcol'.
+Computing hashes of 28 cells of `\mixcol'.
+Finding duplicate cells in `\mixcol'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 1 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 1 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Removed a total of 0 cells.
+
+11.11.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \AES_formal..
+Finding unused cells or wires in module \round_inv..
+Finding unused cells or wires in module \round..
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \invmixcol..
+Finding unused cells or wires in module \mixcol..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_tab..
+
+11.11.4. Finished fast OPT passes.
+
+11.12. Executing SORT pass.
+
+11.13. Printing statistics.
+
+=== AES_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       11 wires
+     1027 wire bits
+        9 public wires
+     1025 public wire bits
+        4 ports
+      512 port bits
+        4 cells
+        2   $check
+        2   $eq
+        4 submodules
+        2   round
+        2   round_inv
+
+=== add_key ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        3 wires
+      384 wire bits
+        3 public wires
+      384 public wire bits
+        3 ports
+      384 port bits
+        1 cells
+        1   $xor
+
+=== invmixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       32 wires
+      304 wire bits
+       20 public wires
+      208 public wire bits
+        2 ports
+       64 port bits
+       46 cells
+       46   $xor
+
+=== invsbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== mixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       22 wires
+      224 wire bits
+       10 public wires
+      128 public wire bits
+        2 ports
+       64 port bits
+       28 cells
+       28   $xor
+
+=== round ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      768 wire bits
+        6 public wires
+      768 public wire bits
+        3 ports
+      384 port bits
+       22 submodules
+        1   add_key
+        4   mixcol
+       16   sbox_tab
+        1   shift_rows_tab
+
+=== round_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      768 wire bits
+        6 public wires
+      768 public wire bits
+        3 ports
+      384 port bits
+       22 submodules
+        1   add_key
+        4   invmixcol
+       16   invsbox_tab
+        1   shift_rows_tab_inv
+
+=== sbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== shift_rows_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      664 AES_formal
+        1   add_key
+       28   mixcol
+        1   sbox_tab
+        1   add_key
+       46   invmixcol
+        1   invsbox_tab
+
+        +----------Count including submodules.
+        | 
+      615 wires
+    11907 wire bits
+      421 public wires
+    10369 public wire bits
+      196 ports
+     6656 port bits
+        - memories
+        - memory bits
+        - processes
+      664 cells
+        2   $check
+        2   $eq
+       64   $mem_v2
+      596   $xor
+        4 submodules
+        2   round
+        2   round_inv
+
+11.14. Executing CHECK pass (checking for obvious problems).
+Checking module AES_formal...
+Warning: Wire AES_formal.\key is used but has no driver.
+Checking module add_key...
+Checking module invmixcol...
+Checking module invsbox_tab...
+Checking module mixcol...
+Checking module round...
+Checking module round_inv...
+Checking module sbox_tab...
+Checking module shift_rows_tab...
+Checking module shift_rows_tab_inv...
+Found and reported 1 problems.
+
+12. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `AES_formal'. Setting top module to AES_formal.
+
+12.1. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invmixcol
+Used module:         \invsbox_tab
+Used module:         \shift_rows_tab_inv
+
+12.2. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invmixcol
+Used module:         \invsbox_tab
+Used module:         \shift_rows_tab_inv
+Removed 0 unused modules.
+Module AES_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+13. Executing jny backend.
+
+14. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+Warnings: 4 unique messages, 5 total
+End of script. Logfile hash: 7cb88dd83a, time: 0.03s, user: 0.03s, system: 0.02s, MEM: 20.25 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 45% 20x read_verilog (0 sec), 16% 4x opt_clean (0 sec), ...

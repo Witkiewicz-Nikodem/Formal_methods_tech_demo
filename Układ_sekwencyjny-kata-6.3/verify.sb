@@ -1,0 +1,13 @@
+[options]
+mode prove
+depth 10
+
+[engines]
+smtbmc boolector
+
+[script]
+read -formal design.sv
+prep -top apb_pipeline_reg
+
+[files]
+design.sv

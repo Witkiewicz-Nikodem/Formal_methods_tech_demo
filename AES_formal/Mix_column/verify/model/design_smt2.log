@@ -1,0 +1,139 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `mix_column_formal'. Setting top module to mix_column_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \mix_column_formal
+Used module:     \invmixcol
+Used module:     \mixcol
+Used module:     \mixcol_ref
+
+2.2. Analyzing design hierarchy..
+Top module:  \mix_column_formal
+Used module:     \invmixcol
+Used module:     \mixcol
+Used module:     \mixcol_ref
+Removed 0 unused modules.
+Module mix_column_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== invmixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       32 wires
+      304 wire bits
+       20 public wires
+      208 public wire bits
+        2 ports
+       64 port bits
+       46 cells
+       46   $xor
+
+=== mix_column_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       11 wires
+      323 wire bits
+        7 public wires
+      224 public wire bits
+        2 ports
+       64 port bits
+        6 cells
+        3   $assert
+        3   $eq
+        5 submodules
+        2   invmixcol
+        2   mixcol
+        1   mixcol_ref
+
+=== mixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       22 wires
+      224 wire bits
+       10 public wires
+      128 public wire bits
+        2 ports
+       64 port bits
+       28 cells
+       28   $xor
+
+=== mixcol_ref ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      550 wires
+     2904 wire bits
+        6 public wires
+      360 public wire bits
+        2 ports
+      256 port bits
+      560 cells
+      384   $mux
+      128   $not
+       48   $xor
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      714 mix_column_formal
+       46 invmixcol
+       28 mixcol
+      560 mixcol_ref
+
+        +----------Count including submodules.
+        | 
+      669 wires
+     4283 wire bits
+       73 public wires
+     1256 public wire bits
+       12 ports
+      576 port bits
+        - memories
+        - memory bits
+        - processes
+      714 cells
+        3   $assert
+        3   $eq
+      384   $mux
+      128   $not
+      196   $xor
+        5 submodules
+        2   invmixcol
+        2   mixcol
+        1   mixcol_ref
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module mixcol_ref.
+Creating SMT-LIBv2 representation of module mixcol.
+Creating SMT-LIBv2 representation of module invmixcol.
+Creating SMT-LIBv2 representation of module mix_column_formal.
+
+End of script. Logfile hash: afe6dab40b, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 17.50 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 71% 2x write_smt2 (0 sec), 19% 2x read_rtlil (0 sec), ...

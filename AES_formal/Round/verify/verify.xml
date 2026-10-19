@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+<testsuite timestamp="2026-10-18T22:36:39" hostname="DESKTOP-JM0Q3HO" package="verify" id="0" name="default" tests="2" errors="0" failures="0" time="21494" skipped="0">
+<properties>
+<property name="os" value="Linux"/>
+<property name="expect" value="PASS"/>
+<property name="status" value="PASS"/>
+</properties>
+<testcase classname="default" name="build execution" time="0">
+</testcase>
+<testcase classname="default" name="Property ASSERT in AES_formal at AES_formal.sv:31.9-31.37" time="0" type="ASSERT" location="AES_formal.sv:31.9-31.37" id="_witness_.check_assert_AES_formal_sv_31_83">
+</testcase>
+<testcase classname="default" name="Property ASSERT in AES_formal at AES_formal.sv:32.9-32.37" time="0" type="ASSERT" location="AES_formal.sv:32.9-32.37" id="_witness_.check_assert_AES_formal_sv_32_85">
+</testcase>
+<system-out>SBY 16:38:24 [verify] Removing directory '/home/niko/Verilog/AES_formal/Round/verify'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../Sbox/sbox_table.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/sbox_table.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../Sbox/sbox_table_inv.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/sbox_table_inv.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../shift_rows/shift_rows_tab.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/shift_rows_tab.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../shift_rows/shift_rows_tab_inv.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/shift_rows_tab_inv.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../Mix_column/mix_column.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/mix_column.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../Mix_column/mix_column_inv.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/mix_column_inv.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/../add_key/add_key.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/add_key.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/AES_round.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/AES_round.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/AES_round_inv.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/AES_round_inv.sv'.
+SBY 16:38:24 [verify] Copy '/home/niko/Verilog/AES_formal/Round/AES_formal.sv' to '/home/niko/Verilog/AES_formal/Round/verify/src/AES_formal.sv'.
+SBY 16:38:24 [verify] engine_0: smtbmc yices
+SBY 16:38:24 [verify] base: starting process &quot;cd verify/src; yosys -ql ../model/design.log ../model/design.ys&quot;
+SBY 16:38:24 [verify] base: AES_formal.sv:18: Warning: Identifier `\key' is implicitly declared.
+SBY 16:38:24 [verify] base: Warning: Resizing cell port AES_formal.r_inv_1.round_key from 1 bits to 128 bits.
+SBY 16:38:24 [verify] base: Warning: Resizing cell port AES_formal.r1.round_key from 1 bits to 128 bits.
+SBY 16:38:24 [verify] base: Warning: Wire AES_formal.\key is used but has no driver.
+SBY 16:38:24 [verify] base: finished (returncode=0)
+SBY 16:38:24 [verify] prep: starting process &quot;cd verify/model; yosys -ql design_prep.log design_prep.ys&quot;
+SBY 16:38:24 [verify] prep: Warning: Wire AES_formal.\key is used but has no driver.
+SBY 16:38:24 [verify] prep: finished (returncode=0)
+SBY 16:38:24 [verify] smt2: starting process &quot;cd verify/model; yosys -ql design_smt2.log design_smt2.ys&quot;
+SBY 16:38:24 [verify] smt2: finished (returncode=0)
+SBY 16:38:24 [verify] engine_0: starting process &quot;cd verify; yosys-smtbmc -s yices --presat --unroll --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2&quot;
+SBY 16:38:24 [verify] engine_0: ##   0:00:00  Solver: yices
+SBY 16:38:24 [verify] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY 16:38:24 [verify] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY 16:39:24 [verify] engine_0: ##   0:01:00  waiting for solver (1 minute)
+SBY 16:43:24 [verify] engine_0: ##   0:05:00  waiting for solver (5 minutes)
+SBY 16:48:24 [verify] engine_0: ##   0:10:00  waiting for solver (10 minutes)
+SBY 16:53:24 [verify] engine_0: ##   0:15:00  waiting for solver (15 minutes)
+SBY 17:08:24 [verify] engine_0: ##   0:30:00  waiting for solver (30 minutes)
+SBY 17:38:24 [verify] engine_0: ##   1:00:00  waiting for solver (1 hour)
+SBY 18:38:24 [verify] engine_0: ##   2:00:00  waiting for solver (2 hours)
+SBY 19:38:24 [verify] engine_0: ##   3:00:00  waiting for solver (3 hours)
+SBY 20:38:24 [verify] engine_0: ##   4:00:00  waiting for solver (4 hours)
+SBY 21:38:24 [verify] engine_0: ##   5:00:00  waiting for solver (5 hours)
+SBY 22:36:39 [verify] engine_0: ##   5:58:15  Status: passed
+SBY 22:36:39 [verify] engine_0: finished (returncode=0)
+SBY 22:36:39 [verify] engine_0: Status returned by engine: pass
+SBY 22:36:39 [verify] summary: Elapsed clock time [H:MM:SS (secs)]: 5:58:15 (21495)
+SBY 22:36:39 [verify] summary: Elapsed process time [H:MM:SS (secs)]: 5:58:14 (21494)
+SBY 22:36:39 [verify] summary: engine_0 (smtbmc yices) returned pass
+SBY 22:36:39 [verify] summary: engine_0 did not produce any traces
+SBY 22:36:39 [verify] DONE (PASS, rc=0)
+</system-out>
+<system-err>
+</system-err>
+</testsuite>
+</testsuites>

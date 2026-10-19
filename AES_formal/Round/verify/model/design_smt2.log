@@ -1,0 +1,237 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `AES_formal'. Setting top module to AES_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invmixcol
+Used module:         \invsbox_tab
+Used module:         \shift_rows_tab_inv
+
+2.2. Analyzing design hierarchy..
+Top module:  \AES_formal
+Used module:     \round
+Used module:         \mixcol
+Used module:         \sbox_tab
+Used module:         \add_key
+Used module:         \shift_rows_tab
+Used module:     \round_inv
+Used module:         \invmixcol
+Used module:         \invsbox_tab
+Used module:         \shift_rows_tab_inv
+Removed 0 unused modules.
+Module AES_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== AES_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       11 wires
+     1027 wire bits
+        9 public wires
+     1025 public wire bits
+        4 ports
+      512 port bits
+        5 cells
+        1   $anyseq
+        2   $assert
+        2   $eq
+        4 submodules
+        2   round
+        2   round_inv
+
+=== add_key ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        3 wires
+      384 wire bits
+        3 public wires
+      384 public wire bits
+        3 ports
+      384 port bits
+        1 cells
+        1   $xor
+
+=== invmixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       32 wires
+      304 wire bits
+       20 public wires
+      208 public wire bits
+        2 ports
+       64 port bits
+       46 cells
+       46   $xor
+
+=== invsbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== mixcol ===
+
+        +----------Local Count, excluding submodules.
+        | 
+       22 wires
+      224 wire bits
+       10 public wires
+      128 public wire bits
+        2 ports
+       64 port bits
+       28 cells
+       28   $xor
+
+=== round ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      768 wire bits
+        6 public wires
+      768 public wire bits
+        3 ports
+      384 port bits
+       22 submodules
+        1   add_key
+        4   mixcol
+       16   sbox_tab
+        1   shift_rows_tab
+
+=== round_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      768 wire bits
+        6 public wires
+      768 public wire bits
+        3 ports
+      384 port bits
+       22 submodules
+        1   add_key
+        4   invmixcol
+       16   invsbox_tab
+        1   shift_rows_tab_inv
+
+=== sbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== shift_rows_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      665 AES_formal
+        1   add_key
+       28   mixcol
+        1   sbox_tab
+        1   add_key
+       46   invmixcol
+        1   invsbox_tab
+
+        +----------Count including submodules.
+        | 
+      615 wires
+    11907 wire bits
+      421 public wires
+    10369 public wire bits
+      196 ports
+     6656 port bits
+        - memories
+        - memory bits
+        - processes
+      665 cells
+        1   $anyseq
+        2   $assert
+        2   $eq
+       64   $mem_v2
+      596   $xor
+        4 submodules
+        2   round
+        2   round_inv
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module shift_rows_tab.
+Creating SMT-LIBv2 representation of module sbox_tab.
+Creating SMT-LIBv2 representation of module shift_rows_tab_inv.
+Creating SMT-LIBv2 representation of module mixcol.
+Creating SMT-LIBv2 representation of module invsbox_tab.
+Creating SMT-LIBv2 representation of module invmixcol.
+Creating SMT-LIBv2 representation of module add_key.
+Creating SMT-LIBv2 representation of module round_inv.
+Creating SMT-LIBv2 representation of module round.
+Creating SMT-LIBv2 representation of module AES_formal.
+
+End of script. Logfile hash: ed28b896f7, time: 0.01s, user: 0.01s, system: 0.01s, MEM: 16.38 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 77% 2x write_smt2 (0 sec), 9% 2x read_rtlil (0 sec), ...

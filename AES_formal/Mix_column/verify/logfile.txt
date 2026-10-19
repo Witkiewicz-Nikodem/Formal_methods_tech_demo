@@ -1,0 +1,19 @@
+SBY  0:51:40 [verify] Removing directory '/home/niko/Verilog/AES_formal/Mix_column/verify'.
+SBY  0:51:40 [verify] Copy '/home/niko/Verilog/AES_formal/Mix_column/mix_columns.sv' to '/home/niko/Verilog/AES_formal/Mix_column/verify/src/mix_columns.sv'.
+SBY  0:51:40 [verify] Copy '/home/niko/Verilog/AES_formal/Mix_column/mix_columns_inv.sv' to '/home/niko/Verilog/AES_formal/Mix_column/verify/src/mix_columns_inv.sv'.
+SBY  0:51:40 [verify] Copy '/home/niko/Verilog/AES_formal/Mix_column/mix_columns_formal.sv' to '/home/niko/Verilog/AES_formal/Mix_column/verify/src/mix_columns_formal.sv'.
+SBY  0:51:40 [verify] Copy '/home/niko/Verilog/AES_formal/Mix_column/mix_columns_ref.sv' to '/home/niko/Verilog/AES_formal/Mix_column/verify/src/mix_columns_ref.sv'.
+SBY  0:51:40 [verify] engine_0: smtbmc yices
+SBY  0:51:40 [verify] base: starting process "cd verify/src; yosys -ql ../model/design.log ../model/design.ys"
+SBY  0:51:41 [verify] base: Warning: Resizing cell port mix_column_formal.mixalg.out from 32 bits to 128 bits.
+SBY  0:51:41 [verify] base: Warning: Resizing cell port mix_column_formal.mixalg.in from 32 bits to 128 bits.
+SBY  0:51:41 [verify] base: finished (returncode=0)
+SBY  0:51:41 [verify] prep: starting process "cd verify/model; yosys -ql design_prep.log design_prep.ys"
+SBY  0:51:41 [verify] prep: finished (returncode=0)
+SBY  0:51:41 [verify] smt2: starting process "cd verify/model; yosys -ql design_smt2.log design_smt2.ys"
+SBY  0:51:41 [verify] smt2: finished (returncode=0)
+SBY  0:51:41 [verify] engine_0: starting process "cd verify; yosys-smtbmc -s yices --presat --unroll --noprogress -t 1  --append 0 --dump-vcd engine_0/trace.vcd --dump-yw engine_0/trace.yw --dump-vlogtb engine_0/trace_tb.v --dump-smtc engine_0/trace.smtc model/design_smt2.smt2"
+SBY  0:51:41 [verify] engine_0: ##   0:00:00  Solver: yices
+SBY  0:51:41 [verify] engine_0: ##   0:00:00  Checking assumptions in step 0..
+SBY  0:51:41 [verify] engine_0: ##   0:00:00  Checking assertions in step 0..
+SBY  0:51:42 [verify] engine_0: terminating process

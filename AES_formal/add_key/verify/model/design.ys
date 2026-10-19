@@ -1,0 +1,9 @@
+# running in verify/src/
+read -formal add_key.sv
+read -formal add_key_formal.sv
+prep -top sbox_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

@@ -1,0 +1,15 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc boolector
+
+[script]
+read -formal add_key.sv
+read -formal add_key_formal.sv
+prep -top sbox_formal
+
+[files]
+add_key.sv
+add_key_formal.sv

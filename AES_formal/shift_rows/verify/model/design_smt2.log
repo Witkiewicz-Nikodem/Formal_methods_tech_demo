@@ -1,0 +1,125 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `shift_rows_formal'. Setting top module to shift_rows_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_ref
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_tab_inv
+
+2.2. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_ref
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_tab_inv
+Removed 0 unused modules.
+Module shift_rows_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== shift_rows_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      514 wire bits
+        4 public wires
+      512 public wire bits
+        1 ports
+      128 port bits
+        4 cells
+        2   $assert
+        2   $eq
+        3 submodules
+        1   shift_rows_ref
+        1   shift_rows_tab
+        1   shift_rows_tab_inv
+
+=== shift_rows_ref ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        4 shift_rows_formal
+
+        +----------Count including submodules.
+        | 
+       12 wires
+     1282 wire bits
+       10 public wires
+     1280 public wire bits
+        7 ports
+      896 port bits
+        - memories
+        - memory bits
+        - processes
+        4 cells
+        2   $assert
+        2   $eq
+        3 submodules
+        1   shift_rows_ref
+        1   shift_rows_tab
+        1   shift_rows_tab_inv
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module shift_rows_tab.
+Creating SMT-LIBv2 representation of module shift_rows_ref.
+Creating SMT-LIBv2 representation of module shift_rows_tab_inv.
+Creating SMT-LIBv2 representation of module shift_rows_formal.
+
+End of script. Logfile hash: d3f9a6c75c, time: 0.00s, user: 0.00s, system: 0.01s, MEM: 15.75 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 65% 2x write_smt2 (0 sec), 12% 2x read_rtlil (0 sec), ...

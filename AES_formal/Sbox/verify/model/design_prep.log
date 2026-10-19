@@ -1,0 +1,98 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module invsbox_tab.
+Found 0 SCCs in module sbox_formal.
+Found 0 SCCs in module sbox_ref.
+Found 0 SCCs in module sbox_tab.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module invsbox_tab...
+Checking module sbox_formal...
+Checking module sbox_ref...
+Checking module sbox_tab...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+Optimizing module sbox_ref.
+Optimizing module sbox_tab.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 1 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 7 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Finding identical cells in module `\sbox_ref'.
+Computing hashes of 577 cells of `\sbox_ref'.
+Finding duplicate cells in `\sbox_ref'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 1 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Removed 187 unused cells and 374 unused wires.
+<suppressed ~375 debug messages>
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: ced72291ee, time: 0.02s, user: 0.02s, system: 0.00s, MEM: 19.02 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 36% 4x opt_clean (0 sec), 12% 1x check (0 sec), ...

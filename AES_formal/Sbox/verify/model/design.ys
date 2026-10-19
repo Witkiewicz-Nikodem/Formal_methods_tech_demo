@@ -1,0 +1,11 @@
+# running in verify/src/
+read -formal sbox_ref.sv
+read -formal sbox_formal.sv
+read -formal sbox_table.sv
+read -formal sbox_table_inv.sv
+prep -top sbox_formal
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il

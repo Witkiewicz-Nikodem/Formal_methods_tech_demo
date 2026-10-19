@@ -1,0 +1,19 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc boolector
+
+[script]
+read -formal shift_rows_ref.sv
+read -formal shift_rows_formal.sv
+read -formal shift_rows_tab.sv
+read -formal shift_rows_tab_inv.sv
+prep -top shift_rows_formal
+
+[files]
+shift_rows_ref.sv
+shift_rows_formal.sv
+shift_rows_tab.sv
+shift_rows_tab_inv.sv

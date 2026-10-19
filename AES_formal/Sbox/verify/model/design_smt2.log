@@ -1,0 +1,140 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `sbox_formal'. Setting top module to sbox_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \sbox_ref
+Used module:     \sbox_tab
+Used module:     \invsbox_tab
+
+2.2. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \sbox_ref
+Used module:     \sbox_tab
+Used module:     \invsbox_tab
+Removed 0 unused modules.
+Module sbox_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== invsbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== sbox_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+       34 wire bits
+        4 public wires
+       32 public wire bits
+        1 ports
+        8 port bits
+        4 cells
+        2   $assert
+        2   $eq
+        3 submodules
+        1   invsbox_tab
+        1   sbox_ref
+        1   sbox_tab
+
+=== sbox_ref ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      392 wires
+     3108 wire bits
+        4 public wires
+       32 public wire bits
+        2 ports
+       16 port bits
+      390 cells
+      203   $mux
+        1   $not
+      186   $xor
+
+=== sbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      396 sbox_formal
+        1 invsbox_tab
+      390 sbox_ref
+        1 sbox_tab
+
+        +----------Count including submodules.
+        | 
+      402 wires
+     3174 wire bits
+       12 public wires
+       96 public wire bits
+        7 ports
+       56 port bits
+        - memories
+        - memory bits
+        - processes
+      396 cells
+        2   $assert
+        2   $eq
+        2   $mem_v2
+      203   $mux
+        1   $not
+      186   $xor
+        3 submodules
+        1   invsbox_tab
+        1   sbox_ref
+        1   sbox_tab
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module sbox_ref.
+Creating SMT-LIBv2 representation of module sbox_tab.
+Creating SMT-LIBv2 representation of module invsbox_tab.
+Creating SMT-LIBv2 representation of module sbox_formal.
+
+End of script. Logfile hash: 879f8ddc93, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 17.62 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 74% 2x write_smt2 (0 sec), 17% 2x read_rtlil (0 sec), ...

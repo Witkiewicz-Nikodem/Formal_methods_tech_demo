@@ -1,0 +1,809 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: sbox_ref.sv
+Parsing formal SystemVerilog input from `sbox_ref.sv' to AST representation.
+Storing AST representation for module `$abstract\sbox_ref'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: sbox_formal.sv
+Parsing formal SystemVerilog input from `sbox_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\sbox_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: sbox_table.sv
+Parsing formal SystemVerilog input from `sbox_table.sv' to AST representation.
+Storing AST representation for module `$abstract\sbox_tab'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: sbox_table_inv.sv
+Parsing formal SystemVerilog input from `sbox_table_inv.sv' to AST representation.
+Storing AST representation for module `$abstract\invsbox_tab'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\sbox_formal'.
+Generating RTLIL representation for module `\sbox_formal'.
+
+5.2.1. Analyzing design hierarchy..
+Top module:  \sbox_formal
+
+5.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\invsbox_tab'.
+Generating RTLIL representation for module `\invsbox_tab'.
+
+5.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\sbox_tab'.
+Generating RTLIL representation for module `\sbox_tab'.
+
+5.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\sbox_ref'.
+Generating RTLIL representation for module `\sbox_ref'.
+
+5.2.5. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \invsbox_tab
+Used module:     \sbox_tab
+Used module:     \sbox_ref
+
+5.2.6. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \invsbox_tab
+Used module:     \sbox_tab
+Used module:     \sbox_ref
+Removing unused module `$abstract\invsbox_tab'.
+Removing unused module `$abstract\sbox_tab'.
+Removing unused module `$abstract\sbox_formal'.
+Removing unused module `$abstract\sbox_ref'.
+Removed 4 unused modules.
+Module sbox_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.3. Executing PROC pass (convert processes to netlists).
+
+5.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Marked 112 switch rules as full_case in process $proc$sbox_ref.sv:59$140 in module sbox_ref.
+Removed 1 dead cases from process $proc$sbox_table.sv:5$9 in module sbox_tab.
+Marked 1 switch rules as full_case in process $proc$sbox_table.sv:5$9 in module sbox_tab.
+Removed 1 dead cases from process $proc$sbox_table_inv.sv:5$8 in module invsbox_tab.
+Marked 1 switch rules as full_case in process $proc$sbox_table_inv.sv:5$8 in module invsbox_tab.
+Removed a total of 2 dead cases.
+
+5.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 321 assignments to connections.
+
+5.3.4. Executing PROC_INIT pass (extract init attributes).
+
+5.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 2 switches.
+<suppressed ~112 debug messages>
+
+5.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sbox_ref.$proc$sbox_ref.sv:60$902'.
+Creating decoders for process `\sbox_ref.$proc$sbox_ref.sv:59$140'.
+     1/112: $8\gmul$func$sbox_ref.sv:41$130.p[7:0]$898
+     2/112: $7\gmul$func$sbox_ref.sv:41$130.p[7:0]$894
+     3/112: $6\gmul$func$sbox_ref.sv:41$130.p[7:0]$890
+     4/112: $5\gmul$func$sbox_ref.sv:41$130.p[7:0]$886
+     5/112: $4\gmul$func$sbox_ref.sv:41$130.p[7:0]$882
+     6/112: $3\gmul$func$sbox_ref.sv:41$130.p[7:0]$878
+     7/112: $2\gmul$func$sbox_ref.sv:41$130.p[7:0]$874
+     8/112: $1\gmul$func$sbox_ref.sv:41$130.p[7:0]$870
+     9/112: $8\gmul$func$sbox_ref.sv:40$121.p[7:0]$866
+    10/112: $7\gmul$func$sbox_ref.sv:40$121.p[7:0]$862
+    11/112: $6\gmul$func$sbox_ref.sv:40$121.p[7:0]$858
+    12/112: $5\gmul$func$sbox_ref.sv:40$121.p[7:0]$854
+    13/112: $4\gmul$func$sbox_ref.sv:40$121.p[7:0]$850
+    14/112: $3\gmul$func$sbox_ref.sv:40$121.p[7:0]$846
+    15/112: $2\gmul$func$sbox_ref.sv:40$121.p[7:0]$842
+    16/112: $1\gmul$func$sbox_ref.sv:40$121.p[7:0]$838
+    17/112: $8\gmul$func$sbox_ref.sv:41$112.p[7:0]$834
+    18/112: $7\gmul$func$sbox_ref.sv:41$112.p[7:0]$830
+    19/112: $6\gmul$func$sbox_ref.sv:41$112.p[7:0]$826
+    20/112: $5\gmul$func$sbox_ref.sv:41$112.p[7:0]$822
+    21/112: $4\gmul$func$sbox_ref.sv:41$112.p[7:0]$818
+    22/112: $3\gmul$func$sbox_ref.sv:41$112.p[7:0]$814
+    23/112: $2\gmul$func$sbox_ref.sv:41$112.p[7:0]$810
+    24/112: $1\gmul$func$sbox_ref.sv:41$112.p[7:0]$806
+    25/112: $8\gmul$func$sbox_ref.sv:40$103.p[7:0]$802
+    26/112: $7\gmul$func$sbox_ref.sv:40$103.p[7:0]$798
+    27/112: $6\gmul$func$sbox_ref.sv:40$103.p[7:0]$794
+    28/112: $5\gmul$func$sbox_ref.sv:40$103.p[7:0]$790
+    29/112: $4\gmul$func$sbox_ref.sv:40$103.p[7:0]$786
+    30/112: $3\gmul$func$sbox_ref.sv:40$103.p[7:0]$782
+    31/112: $2\gmul$func$sbox_ref.sv:40$103.p[7:0]$778
+    32/112: $1\gmul$func$sbox_ref.sv:40$103.p[7:0]$774
+    33/112: $8\gmul$func$sbox_ref.sv:41$94.p[7:0]$770
+    34/112: $7\gmul$func$sbox_ref.sv:41$94.p[7:0]$766
+    35/112: $6\gmul$func$sbox_ref.sv:41$94.p[7:0]$762
+    36/112: $5\gmul$func$sbox_ref.sv:41$94.p[7:0]$758
+    37/112: $4\gmul$func$sbox_ref.sv:41$94.p[7:0]$754
+    38/112: $3\gmul$func$sbox_ref.sv:41$94.p[7:0]$750
+    39/112: $2\gmul$func$sbox_ref.sv:41$94.p[7:0]$746
+    40/112: $1\gmul$func$sbox_ref.sv:41$94.p[7:0]$742
+    41/112: $8\gmul$func$sbox_ref.sv:40$85.p[7:0]$738
+    42/112: $7\gmul$func$sbox_ref.sv:40$85.p[7:0]$734
+    43/112: $6\gmul$func$sbox_ref.sv:40$85.p[7:0]$730
+    44/112: $5\gmul$func$sbox_ref.sv:40$85.p[7:0]$726
+    45/112: $4\gmul$func$sbox_ref.sv:40$85.p[7:0]$722
+    46/112: $3\gmul$func$sbox_ref.sv:40$85.p[7:0]$718
+    47/112: $2\gmul$func$sbox_ref.sv:40$85.p[7:0]$714
+    48/112: $1\gmul$func$sbox_ref.sv:40$85.p[7:0]$710
+    49/112: $8\gmul$func$sbox_ref.sv:41$76.p[7:0]$706
+    50/112: $7\gmul$func$sbox_ref.sv:41$76.p[7:0]$702
+    51/112: $6\gmul$func$sbox_ref.sv:41$76.p[7:0]$698
+    52/112: $5\gmul$func$sbox_ref.sv:41$76.p[7:0]$694
+    53/112: $4\gmul$func$sbox_ref.sv:41$76.p[7:0]$690
+    54/112: $3\gmul$func$sbox_ref.sv:41$76.p[7:0]$686
+    55/112: $2\gmul$func$sbox_ref.sv:41$76.p[7:0]$682
+    56/112: $1\gmul$func$sbox_ref.sv:41$76.p[7:0]$678
+    57/112: $8\gmul$func$sbox_ref.sv:40$67.p[7:0]$674
+    58/112: $7\gmul$func$sbox_ref.sv:40$67.p[7:0]$670
+    59/112: $6\gmul$func$sbox_ref.sv:40$67.p[7:0]$666
+    60/112: $5\gmul$func$sbox_ref.sv:40$67.p[7:0]$662
+    61/112: $4\gmul$func$sbox_ref.sv:40$67.p[7:0]$658
+    62/112: $3\gmul$func$sbox_ref.sv:40$67.p[7:0]$654
+    63/112: $2\gmul$func$sbox_ref.sv:40$67.p[7:0]$650
+    64/112: $1\gmul$func$sbox_ref.sv:40$67.p[7:0]$646
+    65/112: $8\gmul$func$sbox_ref.sv:41$58.p[7:0]$642
+    66/112: $7\gmul$func$sbox_ref.sv:41$58.p[7:0]$638
+    67/112: $6\gmul$func$sbox_ref.sv:41$58.p[7:0]$634
+    68/112: $5\gmul$func$sbox_ref.sv:41$58.p[7:0]$630
+    69/112: $4\gmul$func$sbox_ref.sv:41$58.p[7:0]$626
+    70/112: $3\gmul$func$sbox_ref.sv:41$58.p[7:0]$622
+    71/112: $2\gmul$func$sbox_ref.sv:41$58.p[7:0]$618
+    72/112: $1\gmul$func$sbox_ref.sv:41$58.p[7:0]$614
+    73/112: $8\gmul$func$sbox_ref.sv:40$49.p[7:0]$610
+    74/112: $7\gmul$func$sbox_ref.sv:40$49.p[7:0]$606
+    75/112: $6\gmul$func$sbox_ref.sv:40$49.p[7:0]$602
+    76/112: $5\gmul$func$sbox_ref.sv:40$49.p[7:0]$598
+    77/112: $4\gmul$func$sbox_ref.sv:40$49.p[7:0]$594
+    78/112: $3\gmul$func$sbox_ref.sv:40$49.p[7:0]$590
+    79/112: $2\gmul$func$sbox_ref.sv:40$49.p[7:0]$586
+    80/112: $1\gmul$func$sbox_ref.sv:40$49.p[7:0]$582
+    81/112: $8\gmul$func$sbox_ref.sv:41$40.p[7:0]$578
+    82/112: $7\gmul$func$sbox_ref.sv:41$40.p[7:0]$574
+    83/112: $6\gmul$func$sbox_ref.sv:41$40.p[7:0]$570
+    84/112: $5\gmul$func$sbox_ref.sv:41$40.p[7:0]$566
+    85/112: $4\gmul$func$sbox_ref.sv:41$40.p[7:0]$562
+    86/112: $3\gmul$func$sbox_ref.sv:41$40.p[7:0]$558
+    87/112: $2\gmul$func$sbox_ref.sv:41$40.p[7:0]$554
+    88/112: $1\gmul$func$sbox_ref.sv:41$40.p[7:0]$550
+    89/112: $8\gmul$func$sbox_ref.sv:40$31.p[7:0]$546
+    90/112: $7\gmul$func$sbox_ref.sv:40$31.p[7:0]$542
+    91/112: $6\gmul$func$sbox_ref.sv:40$31.p[7:0]$538
+    92/112: $5\gmul$func$sbox_ref.sv:40$31.p[7:0]$534
+    93/112: $4\gmul$func$sbox_ref.sv:40$31.p[7:0]$530
+    94/112: $3\gmul$func$sbox_ref.sv:40$31.p[7:0]$526
+    95/112: $2\gmul$func$sbox_ref.sv:40$31.p[7:0]$522
+    96/112: $1\gmul$func$sbox_ref.sv:40$31.p[7:0]$518
+    97/112: $8\gmul$func$sbox_ref.sv:41$22.p[7:0]$514
+    98/112: $7\gmul$func$sbox_ref.sv:41$22.p[7:0]$510
+    99/112: $6\gmul$func$sbox_ref.sv:41$22.p[7:0]$506
+   100/112: $5\gmul$func$sbox_ref.sv:41$22.p[7:0]$502
+   101/112: $4\gmul$func$sbox_ref.sv:41$22.p[7:0]$498
+   102/112: $3\gmul$func$sbox_ref.sv:41$22.p[7:0]$494
+   103/112: $2\gmul$func$sbox_ref.sv:41$22.p[7:0]$490
+   104/112: $1\gmul$func$sbox_ref.sv:41$22.p[7:0]$487
+   105/112: $8\gmul$func$sbox_ref.sv:40$13.p[7:0]$483
+   106/112: $7\gmul$func$sbox_ref.sv:40$13.p[7:0]$479
+   107/112: $6\gmul$func$sbox_ref.sv:40$13.p[7:0]$475
+   108/112: $5\gmul$func$sbox_ref.sv:40$13.p[7:0]$471
+   109/112: $4\gmul$func$sbox_ref.sv:40$13.p[7:0]$467
+   110/112: $3\gmul$func$sbox_ref.sv:40$13.p[7:0]$463
+   111/112: $2\gmul$func$sbox_ref.sv:40$13.p[7:0]$459
+   112/112: $1\gmul$func$sbox_ref.sv:40$13.p[7:0]$455
+Creating decoders for process `\sbox_tab.$proc$sbox_table.sv:5$9'.
+     1/1: $1\out[7:0]
+Creating decoders for process `\invsbox_tab.$proc$sbox_table_inv.sv:5$8'.
+     1/1: $1\out[7:0]
+Creating decoders for process `\sbox_formal.$proc$sbox_formal.sv:14$3'.
+
+5.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\sbox_ref.\affine$func$sbox_ref.sv:60$11.$result' from process `\sbox_ref.$proc$sbox_ref.sv:60$902'.
+No latch inferred for signal `\sbox_ref.\ginv$func$sbox_ref.sv:59$10.$result' from process `\sbox_ref.$proc$sbox_ref.sv:59$140'.
+No latch inferred for signal `\sbox_tab.\out' from process `\sbox_tab.$proc$sbox_table.sv:5$9'.
+No latch inferred for signal `\invsbox_tab.\out' from process `\invsbox_tab.$proc$sbox_table_inv.sv:5$8'.
+
+5.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `sbox_ref.$proc$sbox_ref.sv:60$902'.
+Found and cleaned up 112 empty switches in `\sbox_ref.$proc$sbox_ref.sv:59$140'.
+Removing empty process `sbox_ref.$proc$sbox_ref.sv:59$140'.
+Found and cleaned up 1 empty switch in `\sbox_tab.$proc$sbox_table.sv:5$9'.
+Removing empty process `sbox_tab.$proc$sbox_table.sv:5$9'.
+Found and cleaned up 1 empty switch in `\invsbox_tab.$proc$sbox_table_inv.sv:5$8'.
+Removing empty process `invsbox_tab.$proc$sbox_table_inv.sv:5$8'.
+Removing empty process `sbox_formal.$proc$sbox_formal.sv:14$3'.
+Cleaned up 114 empty switches.
+
+5.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sbox_ref.
+<suppressed ~37 debug messages>
+Optimizing module sbox_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sbox_ref.
+Optimizing module sbox_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+
+5.6. Executing CHECK pass (checking for obvious problems).
+Checking module sbox_ref...
+Checking module sbox_tab...
+Checking module invsbox_tab...
+Checking module sbox_formal...
+Found and reported 0 problems.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Removed 26 unused cells and 744 unused wires.
+<suppressed ~30 debug messages>
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sbox_ref.
+Optimizing module sbox_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sbox_ref'.
+Computing hashes of 397 cells of `\sbox_ref'.
+Finding duplicate cells in `\sbox_ref'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 2 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 2 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 7 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \sbox_ref..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+      Replacing known input bits on port B of cell $procmux$1061: $0\gmul$func$sbox_ref.sv:40$67.$result[7:0]$279 -> { $0\gmul$func$sbox_ref.sv:40$67.$result[7:0]$279 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$1013: $0\gmul$func$sbox_ref.sv:40$103.a[7:0]$368 -> { $0\gmul$func$sbox_ref.sv:40$103.a[7:0]$368 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$965: $0\gmul$func$sbox_ref.sv:40$103.$result[7:0]$367 -> { $0\gmul$func$sbox_ref.sv:40$103.$result[7:0]$367 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$1109: $0\gmul$func$sbox_ref.sv:40$49.$result[7:0]$235 -> { $0\gmul$func$sbox_ref.sv:40$49.$result[7:0]$235 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$1157: $0\gmul$func$sbox_ref.sv:40$31.$result[7:0]$191 -> { $0\gmul$func$sbox_ref.sv:40$31.$result[7:0]$191 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$1205: $0\gmul$func$sbox_ref.sv:40$13.$result[7:0]$147 -> { $0\gmul$func$sbox_ref.sv:40$13.$result[7:0]$147 [7:1] 1'1 }
+      Replacing known input bits on port B of cell $procmux$1253: \in -> { \in [7:1] 1'1 }
+  Analyzing evaluation results.
+Running muxtree optimizer on module \sbox_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \invsbox_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sbox_formal..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+<suppressed ~406 debug messages>
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \sbox_ref.
+  Optimizing cells in module \sbox_tab.
+  Optimizing cells in module \invsbox_tab.
+  Optimizing cells in module \sbox_formal.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sbox_ref'.
+Computing hashes of 397 cells of `\sbox_ref'.
+Finding duplicate cells in `\sbox_ref'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 2 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 2 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 7 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sbox_ref.
+Optimizing module sbox_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+
+5.8.8. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$457 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$458 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$461 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$462 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$465 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$466 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$469 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$470 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$473 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$474 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$477 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$478 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$481 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$482 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$520 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$521 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$524 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$525 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$528 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$529 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$532 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$533 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$536 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$537 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$540 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$541 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$544 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$545 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$552 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$553 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$556 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$557 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$560 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$561 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$564 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$565 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$568 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$569 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$572 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$573 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$576 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$577 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$584 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$585 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$588 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$589 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$592 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$593 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$596 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$597 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$600 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$601 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$604 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$605 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$608 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$609 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$616 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$617 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$620 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$621 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$624 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$625 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$628 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$629 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$632 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$633 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$636 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$637 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$640 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$641 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$648 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$649 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$652 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$653 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$656 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$657 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$660 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$661 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$664 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$665 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$668 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$669 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$672 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$673 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$680 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$681 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$684 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$685 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$688 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$689 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$692 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$693 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$696 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$697 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$700 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$701 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$704 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$705 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$712 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$713 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$716 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$717 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$720 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$721 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$724 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$725 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$728 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$729 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$732 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$733 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$736 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$737 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$744 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$745 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$748 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$749 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$752 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$753 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$756 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$757 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$760 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$761 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$764 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$765 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$768 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$769 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$776 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$777 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$780 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$781 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$784 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$785 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$788 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$789 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$792 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$793 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$796 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$797 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$800 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$801 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$808 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$809 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$812 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$813 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$816 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$817 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$820 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$821 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$824 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$825 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$828 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$829 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$832 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$833 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$840 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$841 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$844 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$845 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$848 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$849 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$852 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$853 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$856 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$857 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$860 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$861 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$864 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$865 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$872 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$873 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$876 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$877 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$880 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$881 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$884 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$885 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$888 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$889 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$892 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$893 ($xor).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$ternary$sbox_ref.sv:10$896 ($mux).
+Removed top 3 bits (of 8) from port B of cell sbox_ref.$xor$sbox_ref.sv:10$897 ($xor).
+Removed top 1 bits (of 8) from mux cell sbox_ref.$procmux$1211 ($mux).
+Removed top 2 bits (of 8) from mux cell sbox_ref.$procmux$1214 ($mux).
+Removed top 3 bits (of 8) from mux cell sbox_ref.$procmux$1217 ($mux).
+Removed top 4 bits (of 8) from mux cell sbox_ref.$procmux$1220 ($mux).
+Removed top 5 bits (of 8) from mux cell sbox_ref.$procmux$1223 ($mux).
+Removed top 6 bits (of 8) from mux cell sbox_ref.$procmux$1226 ($mux).
+Removed top 7 bits (of 8) from mux cell sbox_ref.$procmux$1229 ($mux).
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$656_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$840_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$844_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$848_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$720_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$852_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$652_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$856_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$860_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$864_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$648_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$872_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$724_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$876_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$880_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$696_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$884_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$888_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$640_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$892_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$896_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$636_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$728_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$632_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$628_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$624_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$620_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$732_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$616_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$736_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$608_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$692_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$604_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$600_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$596_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$592_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$588_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$584_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$744_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$688_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$748_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$576_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$572_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$568_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$564_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$752_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$560_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$556_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$552_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$756_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$704_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$544_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$760_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$540_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$684_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$536_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$532_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$528_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$764_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$524_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$520_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$768_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$680_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$700_Y.
+Removed top 1 bits (of 8) from wire sbox_ref.$7\gmul$func$sbox_ref.sv:41$22.p[7:0]$510.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$776_Y.
+Removed top 2 bits (of 8) from wire sbox_ref.$6\gmul$func$sbox_ref.sv:41$22.p[7:0]$506.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$712_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$5\gmul$func$sbox_ref.sv:41$22.p[7:0]$502.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$780_Y.
+Removed top 4 bits (of 8) from wire sbox_ref.$4\gmul$func$sbox_ref.sv:41$22.p[7:0]$498.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$784_Y.
+Removed top 5 bits (of 8) from wire sbox_ref.$3\gmul$func$sbox_ref.sv:41$22.p[7:0]$494.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$788_Y.
+Removed top 6 bits (of 8) from wire sbox_ref.$2\gmul$func$sbox_ref.sv:41$22.p[7:0]$490.
+Removed top 7 bits (of 8) from wire sbox_ref.$1\gmul$func$sbox_ref.sv:41$22.p[7:0]$487.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$792_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$481_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$477_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$796_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$473_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$672_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$469_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$465_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$461_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$800_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$457_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$716_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$668_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$808_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$812_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$816_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$664_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$820_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$824_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$828_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$832_Y.
+Removed top 3 bits (of 8) from wire sbox_ref.$ternary$sbox_ref.sv:10$660_Y.
+Removed top 24 address bits (of 32) from memory init port sbox_tab.$auto$mem.cc:351:emit$914 ($auto$proc_rom.cc:155:do_switch$912).
+Removed top 24 address bits (of 32) from memory init port invsbox_tab.$auto$mem.cc:351:emit$918 ($auto$proc_rom.cc:155:do_switch$916).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Removed 0 unused cells and 98 unused wires.
+<suppressed ~1 debug messages>
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module sbox_ref.
+<suppressed ~7 debug messages>
+Optimizing module sbox_tab.
+Optimizing module invsbox_tab.
+Optimizing module sbox_formal.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\sbox_ref'.
+Computing hashes of 390 cells of `\sbox_ref'.
+Finding duplicate cells in `\sbox_ref'.
+Finding identical cells in module `\sbox_tab'.
+Computing hashes of 1 cells of `\sbox_tab'.
+Finding duplicate cells in `\sbox_tab'.
+Finding identical cells in module `\invsbox_tab'.
+Computing hashes of 1 cells of `\invsbox_tab'.
+Finding duplicate cells in `\invsbox_tab'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 7 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \sbox_ref..
+Finding unused cells or wires in module \sbox_tab..
+Finding unused cells or wires in module \invsbox_tab..
+Finding unused cells or wires in module \sbox_formal..
+Removed 0 unused cells and 7 unused wires.
+<suppressed ~1 debug messages>
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== invsbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== sbox_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+       34 wire bits
+        4 public wires
+       32 public wire bits
+        1 ports
+        8 port bits
+        4 cells
+        2   $check
+        2   $eq
+        3 submodules
+        1   invsbox_tab
+        1   sbox_ref
+        1   sbox_tab
+
+=== sbox_ref ===
+
+        +----------Local Count, excluding submodules.
+        | 
+      579 wires
+     4964 wire bits
+      191 public wires
+     1888 public wire bits
+        2 ports
+       16 port bits
+      390 cells
+      203   $mux
+        1   $not
+      186   $xor
+
+=== sbox_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+       16 wire bits
+        2 public wires
+       16 public wire bits
+        2 ports
+       16 port bits
+        1 cells
+        1   $mem_v2
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+      396 sbox_formal
+        1 invsbox_tab
+      390 sbox_ref
+        1 sbox_tab
+
+        +----------Count including submodules.
+        | 
+      589 wires
+     5030 wire bits
+      199 public wires
+     1952 public wire bits
+        7 ports
+       56 port bits
+        - memories
+        - memory bits
+        - processes
+      396 cells
+        2   $check
+        2   $eq
+        2   $mem_v2
+      203   $mux
+        1   $not
+      186   $xor
+        3 submodules
+        1   invsbox_tab
+        1   sbox_ref
+        1   sbox_tab
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module invsbox_tab...
+Checking module sbox_formal...
+Checking module sbox_ref...
+Checking module sbox_tab...
+Found and reported 0 problems.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `sbox_formal'. Setting top module to sbox_formal.
+
+6.1. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \sbox_ref
+Used module:     \sbox_tab
+Used module:     \invsbox_tab
+
+6.2. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \sbox_ref
+Used module:     \sbox_tab
+Used module:     \invsbox_tab
+Removed 0 unused modules.
+Module sbox_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7. Executing jny backend.
+
+8. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 9aba4996e6, time: 0.09s, user: 0.08s, system: 0.02s, MEM: 26.38 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 49% 2x hierarchy (0 sec), 12% 4x opt_clean (0 sec), ...

@@ -1,0 +1,14 @@
+##   0:00:00  Solver: yices
+##   0:00:00  Checking assumptions in step 0..
+##   0:00:00  Checking assertions in step 0..
+##   0:01:00  waiting for solver (1 minute)
+##   0:05:00  waiting for solver (5 minutes)
+##   0:10:00  waiting for solver (10 minutes)
+##   0:15:00  waiting for solver (15 minutes)
+##   0:30:00  waiting for solver (30 minutes)
+##   1:00:00  waiting for solver (1 hour)
+##   2:00:00  waiting for solver (2 hours)
+##   3:00:00  waiting for solver (3 hours)
+##   4:00:00  waiting for solver (4 hours)
+##   5:00:00  waiting for solver (5 hours)
+##   5:58:15  Status: passed

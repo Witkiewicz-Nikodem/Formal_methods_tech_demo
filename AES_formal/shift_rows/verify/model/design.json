@@ -1,0 +1,240 @@
+{
+  "$schema": "https://raw.githubusercontent.com/YosysHQ/yosys/main/misc/jny.schema.json",
+  "generator": "Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)",
+  "version": "0.0.1",
+  "invocation": "write_jny -no-connections ../model/design.json ",
+  "features": ["attributes", "properties"],
+  "modules": [
+      {
+        "name": "shift_rows_formal",
+        "cell_sorts": [
+          {
+            "type": "shift_rows_tab_inv",
+            "ports": [
+                {
+                  "name": "in",
+                  "direction": "io",
+                  "range": [128, 0]
+                },
+                {
+                  "name": "out",
+                  "direction": "",
+                  "range": [128, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "c",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "shift_rows_formal.sv:11.24-11.59"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "shift_rows_tab",
+            "ports": [
+                {
+                  "name": "in",
+                  "direction": "io",
+                  "range": [128, 0]
+                },
+                {
+                  "name": "out",
+                  "direction": "",
+                  "range": [128, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "b",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "shift_rows_formal.sv:9.20-9.46"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "shift_rows_ref",
+            "ports": [
+                {
+                  "name": "in",
+                  "direction": "io",
+                  "range": [128, 0]
+                },
+                {
+                  "name": "out",
+                  "direction": "",
+                  "range": [128, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "a",
+                  "attributes": {
+                    "module_not_derived": "00000000000000000000000000000001",
+                    "src": "shift_rows_formal.sv:8.20-8.46"
+                  },
+                  "parameters": {
+
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$check",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "ARGS",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "EN",
+                  "direction": "io",
+                  "range": [0, 0]
+                },
+                {
+                  "name": "TRG",
+                  "direction": "io",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "_witness_.check_assert_shift_rows_formal_sv_15_2",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_shift_rows_formal_sv_15_2",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "shift_rows_formal.sv:15.9-15.35"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111111",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                },
+                {
+                  "name": "_witness_.check_assert_shift_rows_formal_sv_16_4",
+                  "attributes": {
+                    "hdlname": "_witness_ check_assert_shift_rows_formal_sv_16_4",
+                    "keep": "00000000000000000000000000000001",
+                    "src": "shift_rows_formal.sv:16.9-16.34"
+                  },
+                  "parameters": {
+                    "ARGS_WIDTH": "00000000000000000000000000000000",
+                    "FLAVOR": "assert",
+                    "FORMAT": true,
+                    "PRIORITY": "11111111111111111111111111111110",
+                    "TRG_ENABLE": "00000000000000000000000000000000",
+                    "TRG_POLARITY": true,
+                    "TRG_WIDTH": "00000000000000000000000000000000"
+                  }
+                }
+            ]
+          },
+          {
+            "type": "$eq",
+            "ports": [
+                {
+                  "name": "A",
+                  "direction": "io",
+                  "range": [128, 0]
+                },
+                {
+                  "name": "B",
+                  "direction": "io",
+                  "range": [128, 0]
+                },
+                {
+                  "name": "Y",
+                  "direction": "",
+                  "range": [0, 0]
+                }
+            ],
+            "cells": [
+                {
+                  "name": "$eq$shift_rows_formal.sv:15$3",
+                  "attributes": {
+                    "src": "shift_rows_formal.sv:15.16-15.34"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000010000000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000010000000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                },
+                {
+                  "name": "$eq$shift_rows_formal.sv:16$5",
+                  "attributes": {
+                    "src": "shift_rows_formal.sv:16.16-16.33"
+                  },
+                  "parameters": {
+                    "A_SIGNED": "00000000000000000000000000000000",
+                    "A_WIDTH": "00000000000000000000000010000000",
+                    "B_SIGNED": "00000000000000000000000000000000",
+                    "B_WIDTH": "00000000000000000000000010000000",
+                    "Y_WIDTH": "00000000000000000000000000000001"
+                  }
+                }
+            ]
+          }
+        ],
+        "attributes": {
+            "keep": "00000000000000000000000000000001",
+            "hdlname": "shift_rows_formal",
+            "top": "00000000000000000000000000000001",
+            "src": "shift_rows_formal.sv:1.1-19.10"
+        }
+      },
+      {
+        "name": "shift_rows_ref",
+        "cell_sorts": [
+
+        ],
+        "attributes": {
+            "hdlname": "shift_rows_ref",
+            "src": "shift_rows_ref.sv:1.1-15.10"
+        }
+      },
+      {
+        "name": "shift_rows_tab",
+        "cell_sorts": [
+
+        ],
+        "attributes": {
+            "hdlname": "shift_rows_tab",
+            "src": "shift_rows_tab.sv:1.1-25.10"
+        }
+      },
+      {
+        "name": "shift_rows_tab_inv",
+        "cell_sorts": [
+
+        ],
+        "attributes": {
+            "hdlname": "shift_rows_tab_inv",
+            "src": "shift_rows_tab_inv.sv:1.1-24.10"
+        }
+      }
+  ]
+}

@@ -1,0 +1,4 @@
+Elapsed clock time [H:MM:SS (secs)]: 5:58:15 (21495)
+Elapsed process time [H:MM:SS (secs)]: 5:58:14 (21494)
+engine_0 (smtbmc yices) returned pass
+engine_0 did not produce any traces

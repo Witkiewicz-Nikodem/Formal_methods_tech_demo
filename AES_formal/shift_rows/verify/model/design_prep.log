@@ -1,0 +1,96 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `design_prep.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design.il
+
+2. Executing SCC pass (detecting logic loops).
+Found 0 SCCs in module shift_rows_formal.
+Found 0 SCCs in module shift_rows_ref.
+Found 0 SCCs in module shift_rows_tab.
+Found 0 SCCs in module shift_rows_tab_inv.
+Found 0 SCCs.
+
+3. Executing SIMPLEMAP pass (map simple cells to gate primitives).
+
+4. Executing MEMORY_NORDFF pass (extracting $dff cells from memories).
+
+5. Executing ASYNC2SYNC pass.
+
+6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_formal..
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Removed 4 unused cells and 4 unused wires.
+<suppressed ~5 debug messages>
+
+7. Executing FORMALFF pass.
+
+8. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_formal..
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+
+9. Executing CHECK pass (checking for obvious problems).
+Checking module shift_rows_formal...
+Checking module shift_rows_ref...
+Checking module shift_rows_tab...
+Checking module shift_rows_tab_inv...
+Found and reported 0 problems.
+
+10. Executing SETUNDEF pass (replace undef values with defined constants).
+
+11. Executing OPT pass (performing simple optimizations).
+
+11.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_formal.
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+
+11.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_rows_formal'.
+Computing hashes of 7 cells of `\shift_rows_formal'.
+Finding duplicate cells in `\shift_rows_formal'.
+Finding identical cells in module `\shift_rows_ref'.
+Computing hashes of 0 cells of `\shift_rows_ref'.
+Finding duplicate cells in `\shift_rows_ref'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Removed a total of 0 cells.
+
+11.3. Executing OPT_DFF pass (perform DFF optimizations).
+
+11.4. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_formal..
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+
+11.5. Finished fast OPT passes.
+
+12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_formal..
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+
+13. Executing RTLIL backend.
+Output filename: ../model/design_prep.il
+
+End of script. Logfile hash: 980c96252f, time: 0.01s, user: 0.01s, system: 0.00s, MEM: 16.50 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 35% 4x opt_clean (0 sec), 12% 1x check (0 sec), ...

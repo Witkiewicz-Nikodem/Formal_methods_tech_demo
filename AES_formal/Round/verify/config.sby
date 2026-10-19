@@ -1,0 +1,31 @@
+[options]
+mode bmc
+depth 1
+
+[engines]
+smtbmc yices
+
+[script]
+read_verilog -formal -sv sbox_table.sv
+read_verilog -formal -sv sbox_table_inv.sv
+read_verilog -formal -sv shift_rows_tab.sv
+read_verilog -formal -sv shift_rows_tab_inv.sv
+read_verilog -formal -sv mix_column.sv
+read_verilog -formal -sv mix_column_inv.sv
+read_verilog -formal -sv add_key.sv
+read_verilog -formal -sv AES_round.sv
+read_verilog -formal -sv AES_round_inv.sv
+read_verilog -formal -sv AES_formal.sv
+prep -top AES_formal
+
+[files]
+../Sbox/sbox_table.sv
+../Sbox/sbox_table_inv.sv
+../shift_rows/shift_rows_tab.sv
+../shift_rows/shift_rows_tab_inv.sv
+../Mix_column/mix_column.sv
+../Mix_column/mix_column_inv.sv
+../add_key/add_key.sv
+AES_round.sv
+AES_round_inv.sv
+AES_formal.sv

@@ -1,0 +1,259 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: add_key.sv
+Parsing formal SystemVerilog input from `add_key.sv' to AST representation.
+Storing AST representation for module `$abstract\add_key'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: add_key_formal.sv
+Parsing formal SystemVerilog input from `add_key_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\sbox_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing PREP pass.
+
+3.1. Executing HIERARCHY pass (managing design hierarchy).
+
+3.2. Executing AST frontend in derive mode using pre-parsed AST for module `\sbox_formal'.
+Generating RTLIL representation for module `\sbox_formal'.
+
+3.2.1. Analyzing design hierarchy..
+Top module:  \sbox_formal
+
+3.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\add_key'.
+Generating RTLIL representation for module `\add_key'.
+
+3.2.3. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \add_key
+
+3.2.4. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \add_key
+Removing unused module `$abstract\sbox_formal'.
+Removing unused module `$abstract\add_key'.
+Removed 2 unused modules.
+Module sbox_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3.3. Executing PROC pass (convert processes to netlists).
+
+3.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+3.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+3.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 1 redundant assignment.
+Promoted 1 assignment to connection.
+
+3.3.4. Executing PROC_INIT pass (extract init attributes).
+
+3.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+3.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+3.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\sbox_formal.$proc$add_key_formal.sv:12$1'.
+
+3.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+3.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+3.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+3.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `sbox_formal.$proc$add_key_formal.sv:12$1'.
+Cleaned up 0 empty switches.
+
+3.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module add_key.
+Optimizing module sbox_formal.
+
+3.4. Executing FUTURE pass.
+
+3.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module add_key.
+Optimizing module sbox_formal.
+
+3.6. Executing CHECK pass (checking for obvious problems).
+Checking module add_key...
+Checking module sbox_formal...
+Found and reported 0 problems.
+
+3.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \sbox_formal..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~2 debug messages>
+
+3.8. Executing OPT pass (performing simple optimizations).
+
+3.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module add_key.
+Optimizing module sbox_formal.
+
+3.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 4 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+3.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \add_key..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \sbox_formal..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+3.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \add_key.
+  Optimizing cells in module \sbox_formal.
+Performed a total of 0 changes.
+
+3.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 4 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+3.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \sbox_formal..
+
+3.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module add_key.
+Optimizing module sbox_formal.
+
+3.8.8. Finished fast OPT passes. (There is nothing left to do.)
+
+3.9. Executing WREDUCE pass (reducing word size of cells).
+
+3.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \sbox_formal..
+
+3.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+3.12. Executing OPT pass (performing simple optimizations).
+
+3.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module add_key.
+Optimizing module sbox_formal.
+
+3.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\add_key'.
+Computing hashes of 1 cells of `\add_key'.
+Finding duplicate cells in `\add_key'.
+Finding identical cells in module `\sbox_formal'.
+Computing hashes of 4 cells of `\sbox_formal'.
+Finding duplicate cells in `\sbox_formal'.
+Removed a total of 0 cells.
+
+3.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \add_key..
+Finding unused cells or wires in module \sbox_formal..
+
+3.12.4. Finished fast OPT passes.
+
+3.13. Executing SORT pass.
+
+3.14. Printing statistics.
+
+=== add_key ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        3 wires
+      384 wire bits
+        3 public wires
+      384 public wire bits
+        3 ports
+      384 port bits
+        1 cells
+        1   $xor
+
+=== sbox_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        5 wires
+      513 wire bits
+        4 public wires
+      512 public wire bits
+        2 ports
+      256 port bits
+        2 cells
+        1   $check
+        1   $eq
+        2 submodules
+        2   add_key
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        4 sbox_formal
+        1 add_key
+
+        +----------Count including submodules.
+        | 
+       11 wires
+     1281 wire bits
+       10 public wires
+     1280 public wire bits
+        8 ports
+     1024 port bits
+        - memories
+        - memory bits
+        - processes
+        4 cells
+        1   $check
+        1   $eq
+        2   $xor
+        2 submodules
+        2   add_key
+
+3.15. Executing CHECK pass (checking for obvious problems).
+Checking module add_key...
+Checking module sbox_formal...
+Found and reported 0 problems.
+
+4. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `sbox_formal'. Setting top module to sbox_formal.
+
+4.1. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \add_key
+
+4.2. Analyzing design hierarchy..
+Top module:  \sbox_formal
+Used module:     \add_key
+Removed 0 unused modules.
+Module sbox_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5. Executing jny backend.
+
+6. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 8a03a5230d, time: 0.02s, user: 0.01s, system: 0.01s, MEM: 18.00 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 16% 4x opt_clean (0 sec), 13% 2x hierarchy (0 sec), ...

@@ -1,0 +1,355 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: shift_rows_ref.sv
+Parsing formal SystemVerilog input from `shift_rows_ref.sv' to AST representation.
+Storing AST representation for module `$abstract\shift_rows_ref'.
+Successfully finished Verilog frontend.
+
+2. Executing Verilog-2005 frontend: shift_rows_formal.sv
+Parsing formal SystemVerilog input from `shift_rows_formal.sv' to AST representation.
+Storing AST representation for module `$abstract\shift_rows_formal'.
+Successfully finished Verilog frontend.
+
+3. Executing Verilog-2005 frontend: shift_rows_tab.sv
+Parsing formal SystemVerilog input from `shift_rows_tab.sv' to AST representation.
+Storing AST representation for module `$abstract\shift_rows_tab'.
+Successfully finished Verilog frontend.
+
+4. Executing Verilog-2005 frontend: shift_rows_tab_inv.sv
+Parsing formal SystemVerilog input from `shift_rows_tab_inv.sv' to AST representation.
+Storing AST representation for module `$abstract\shift_rows_tab_inv'.
+Successfully finished Verilog frontend.
+
+5. Executing PREP pass.
+
+5.1. Executing HIERARCHY pass (managing design hierarchy).
+
+5.2. Executing AST frontend in derive mode using pre-parsed AST for module `\shift_rows_formal'.
+Generating RTLIL representation for module `\shift_rows_formal'.
+
+5.2.1. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+
+5.2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\shift_rows_tab_inv'.
+Generating RTLIL representation for module `\shift_rows_tab_inv'.
+
+5.2.3. Executing AST frontend in derive mode using pre-parsed AST for module `\shift_rows_tab'.
+Generating RTLIL representation for module `\shift_rows_tab'.
+
+5.2.4. Executing AST frontend in derive mode using pre-parsed AST for module `\shift_rows_ref'.
+Generating RTLIL representation for module `\shift_rows_ref'.
+
+5.2.5. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_tab_inv
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_ref
+
+5.2.6. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_tab_inv
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_ref
+Removing unused module `$abstract\shift_rows_tab_inv'.
+Removing unused module `$abstract\shift_rows_tab'.
+Removing unused module `$abstract\shift_rows_formal'.
+Removing unused module `$abstract\shift_rows_ref'.
+Removed 4 unused modules.
+Module shift_rows_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+5.3. Executing PROC pass (convert processes to netlists).
+
+5.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+5.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed a total of 0 dead cases.
+
+5.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 2 redundant assignments.
+Promoted 2 assignments to connections.
+
+5.3.4. Executing PROC_INIT pass (extract init attributes).
+
+5.3.5. Executing PROC_ARST pass (detect async resets in processes).
+
+5.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+
+5.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\shift_rows_formal.$proc$shift_rows_formal.sv:14$1'.
+
+5.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+
+5.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+
+5.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+5.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `shift_rows_formal.$proc$shift_rows_formal.sv:14$1'.
+Cleaned up 0 empty switches.
+
+5.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_formal.
+
+5.4. Executing FUTURE pass.
+
+5.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_formal.
+
+5.6. Executing CHECK pass (checking for obvious problems).
+Checking module shift_rows_ref...
+Checking module shift_rows_tab...
+Checking module shift_rows_tab_inv...
+Checking module shift_rows_formal...
+Found and reported 0 problems.
+
+5.7. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_formal..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+5.8. Executing OPT pass (performing simple optimizations).
+
+5.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_formal.
+
+5.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_rows_ref'.
+Computing hashes of 0 cells of `\shift_rows_ref'.
+Finding duplicate cells in `\shift_rows_ref'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_formal'.
+Computing hashes of 7 cells of `\shift_rows_formal'.
+Finding duplicate cells in `\shift_rows_formal'.
+Removed a total of 0 cells.
+
+5.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \shift_rows_ref..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shift_rows_tab..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shift_rows_tab_inv..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Running muxtree optimizer on module \shift_rows_formal..
+  Creating internal representation of mux trees.
+  No muxes found in this module.
+Removed 0 multiplexer ports.
+
+5.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \shift_rows_ref.
+  Optimizing cells in module \shift_rows_tab.
+  Optimizing cells in module \shift_rows_tab_inv.
+  Optimizing cells in module \shift_rows_formal.
+Performed a total of 0 changes.
+
+5.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_rows_ref'.
+Computing hashes of 0 cells of `\shift_rows_ref'.
+Finding duplicate cells in `\shift_rows_ref'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_formal'.
+Computing hashes of 7 cells of `\shift_rows_formal'.
+Finding duplicate cells in `\shift_rows_formal'.
+Removed a total of 0 cells.
+
+5.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_formal..
+
+5.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_formal.
+
+5.8.8. Finished fast OPT passes. (There is nothing left to do.)
+
+5.9. Executing WREDUCE pass (reducing word size of cells).
+
+5.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_formal..
+
+5.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+5.12. Executing OPT pass (performing simple optimizations).
+
+5.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module shift_rows_ref.
+Optimizing module shift_rows_tab.
+Optimizing module shift_rows_tab_inv.
+Optimizing module shift_rows_formal.
+
+5.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\shift_rows_ref'.
+Computing hashes of 0 cells of `\shift_rows_ref'.
+Finding duplicate cells in `\shift_rows_ref'.
+Finding identical cells in module `\shift_rows_tab'.
+Computing hashes of 0 cells of `\shift_rows_tab'.
+Finding duplicate cells in `\shift_rows_tab'.
+Finding identical cells in module `\shift_rows_tab_inv'.
+Computing hashes of 0 cells of `\shift_rows_tab_inv'.
+Finding duplicate cells in `\shift_rows_tab_inv'.
+Finding identical cells in module `\shift_rows_formal'.
+Computing hashes of 7 cells of `\shift_rows_formal'.
+Finding duplicate cells in `\shift_rows_formal'.
+Removed a total of 0 cells.
+
+5.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \shift_rows_ref..
+Finding unused cells or wires in module \shift_rows_tab..
+Finding unused cells or wires in module \shift_rows_tab_inv..
+Finding unused cells or wires in module \shift_rows_formal..
+
+5.12.4. Finished fast OPT passes.
+
+5.13. Executing SORT pass.
+
+5.14. Printing statistics.
+
+=== shift_rows_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+      514 wire bits
+        4 public wires
+      512 public wire bits
+        1 ports
+      128 port bits
+        4 cells
+        2   $check
+        2   $eq
+        3 submodules
+        1   shift_rows_ref
+        1   shift_rows_tab
+        1   shift_rows_tab_inv
+
+=== shift_rows_ref ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== shift_rows_tab_inv ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        2 wires
+      256 wire bits
+        2 public wires
+      256 public wire bits
+        2 ports
+      256 port bits
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+        4 shift_rows_formal
+
+        +----------Count including submodules.
+        | 
+       12 wires
+     1282 wire bits
+       10 public wires
+     1280 public wire bits
+        7 ports
+      896 port bits
+        - memories
+        - memory bits
+        - processes
+        4 cells
+        2   $check
+        2   $eq
+        3 submodules
+        1   shift_rows_ref
+        1   shift_rows_tab
+        1   shift_rows_tab_inv
+
+5.15. Executing CHECK pass (checking for obvious problems).
+Checking module shift_rows_formal...
+Checking module shift_rows_ref...
+Checking module shift_rows_tab...
+Checking module shift_rows_tab_inv...
+Found and reported 0 problems.
+
+6. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `shift_rows_formal'. Setting top module to shift_rows_formal.
+
+6.1. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_ref
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_tab_inv
+
+6.2. Analyzing design hierarchy..
+Top module:  \shift_rows_formal
+Used module:     \shift_rows_ref
+Used module:     \shift_rows_tab
+Used module:     \shift_rows_tab_inv
+Removed 0 unused modules.
+Module shift_rows_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+7. Executing jny backend.
+
+8. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 30dfec4442, time: 0.01s, user: 0.01s, system: 0.01s, MEM: 18.50 MB peak
+Yosys 0.69+173 (git sha1 53f1cdd34-dirty, Release, Clang /usr/bin/clang++ 21.1.8)
+Time spent: 24% 2x hierarchy (0 sec), 17% 4x opt_clean (0 sec), ...
